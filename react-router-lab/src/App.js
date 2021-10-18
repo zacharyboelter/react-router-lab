@@ -1,11 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Route, Switch } from "react-router-dom";
 import About from './pages/About';
 import Nav from './components/Nav';
 import Stock from './pages/Stock';
-import Home from './pages/home';
-import Stocks from './pages/stock-data';
+import Home from './pages/Home';
+import stocks from './data.json';
+import Dashboard from './pages/Dashboard';
 
 
 //components for navbar and navigation. 
@@ -20,14 +21,18 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/">
-          <Main />
+          <Home />
         </Route>
-        <Route path="/stocks">
-          <Stocks />
+        <Route path="/about">
+          <About />
         </Route>
         <Route
-          path="/price/:symbol"
-          render={(routerProps) => <Price {...routerProps} />}
+          path="/stocks/:symbol"
+          render={(routerProps) => <Stock stocks={stocks} {...routerProps} />}
+        />
+        <Route
+          path="/stocks/l"
+          render={(routerProps) => <Dashboard stocks={stocks} {...routerProps} />}
         />
       </Switch>
     </div>
