@@ -31,7 +31,7 @@ function App() {
           render={(routerProps) => <Stock stocks={stocks} {...routerProps} />}
         />
         <Route
-          path="/stocks/l"
+          path="/stocks/"
           render={(routerProps) => <Dashboard stocks={stocks} {...routerProps} />}
         />
       </Switch>
